@@ -14,7 +14,7 @@ from modules.rclone import start_rclonecopy,start_rclonelsd,start_rclonels,start
 from modules.video import start_get_video_info
 import hashlib
 import os
-#import md5 #Python2里的引用
+import md5 #Python2里的引用
 
 
 
@@ -38,7 +38,7 @@ async def test(client, message):
     await client.send_message(chat_id=int(Telegram_user_id), text="test")
 
 def start_bot():
-    #scheduler = BlockingScheduler()
+    scheduler = BlockingScheduler()
     scheduler = BackgroundScheduler()
 
     scheduler.add_job(new_clock, "interval", seconds=60)
@@ -56,7 +56,7 @@ def start_bot():
 
     start_message_handler = MessageHandler(
         test,
-        #filters=filters.command("start") & filters.user(int(Telegram_user_id))
+        filters=filters.command("start") & filters.user(int(Telegram_user_id))
         filters=filters.command("start") & filters.create(chexk_group)
     )
 
