@@ -33,7 +33,7 @@ client = Client("my_bot", bot_token=Telegram_bot_api,
 
 client.start()
 
-client.send_message(chat_id=int(Telegram_user_id), text="Bot上线！！！")
+client.send_message(chat_id=int(Telegram_user_id), text="Bot上线")
 Bot_info=client.get_me()
 
 BOT_name=Bot_info.username
